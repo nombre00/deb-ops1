@@ -1,0 +1,55 @@
+# acá vamos a construir un pipeline
+## Tenemos que definir pipeline:
+# instala el copilot
+
+# Primero va el nombre.
+name: django-web
+
+# Luego viene:
+on:
+  push:
+    branches:
+      # Master es el nombre de la rama.
+      - master
+jobs: 
+  # construir.
+  build:
+    runs-on: ubuntu-latest
+    # los pasos: cada instrucción es un paso.
+    steps:
+      # Primer paso:
+      # Primero tenemos que comprobar el repositorio de github.
+      # Nombre del paso.
+      - name: Comprobar repositorio
+      # Acción a tomar.
+      # Las versiones de los checkouts se encuentran en los marketplaces de github.
+        uses: actions/checkout@v2
+
+      # Segundo paso:
+      # Vamos a configurar python.
+      # Nombre del paso.
+      - name: Configurar Python
+        uses: actions/setup-python@v2
+        with:
+          # Versión de python que vamos a configurar.
+          python-version: 3.13
+      
+      # Tercer paso:
+      # Vamos a instalar las dependencias necesarias para el python que vamos a usar.
+      - name: Instalar dependencias
+        # '|' es para escribir varias lineas de código de una vez.
+        # Primero tenemos que indicar la ruta de las librerías que tiene que instalar, estas están en la carpeta requirements.
+        run: |
+          cd ejercicioTrackDevops1-main
+          pip install -r requirements.txt
+      
+      # Cuarto paso:
+      # Ejecutar las pruebas.
+      # Al inicio de cada paso la memoria siempre parte en el root, por lo que si necesitamos información de una carpeta en particular
+      # tenemos que movernos a esa carpeta.
+      # En este caso nos movemos a la carpeta del proyecto y corremos el archivo que hace las pruebas para python.
+      - name: Ejecutar pruebas
+        run: |
+          cd ejercicioTrackDevops1-main
+          python manage.py test
+          
