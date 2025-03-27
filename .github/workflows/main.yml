@@ -10,7 +10,7 @@ on:
   push:
     branches:
       # Master es el nombre de la rama.
-      - master
+      - main
 jobs: 
   # construir.
   build:
@@ -52,4 +52,3 @@ jobs:
         run: |
           cd ejercicioTrackDevops1-main
           python manage.py test
-          
