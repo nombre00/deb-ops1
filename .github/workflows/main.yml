@@ -98,6 +98,7 @@ jobs:
                   cd /home/ubuntu/ejercicio_1/ejercicioTrackDevops1-main
                   sudo apt install python3.12-venv -y
                   python3 -m venv venv
+                  sudo apt install python3.12-pip3 -y
                   source venv/bin/activate
                   pip3 install -r requiments.txt
                   nohup python3 manage.py runserver 0.0.0.0:8000 --noreload > /dev/null 2>&1 &
