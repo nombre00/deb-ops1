@@ -64,7 +64,7 @@ jobs:
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.HOST }}  # Secretos.
-          username: ${{secret.NOMBRE_USUARIO}}  # Secretos.
+          username: ${{secrets.NOMBRE_USUARIO}}  # Secretos.
           key: ${{ secrets.llave_Privada }}  # Secretos.
           port: ${{ secrets.puerto }}  # Secretos.
           # Con script podemos ejecutar comandos remotos al servidor.
