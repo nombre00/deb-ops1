@@ -64,7 +64,10 @@ jobs:
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.HOST }}  # Secretos.
-          username: ${{secret.nombre_usuario}}  # Secretos.
+          username: ${{secret.NOMBRE_USUARIO}}  # Secretos.
           key: ${{ secrets.llave_Privada }}  # Secretos.
           port: ${{ secrets.puerto }}  # Secretos.
-          script: whoami
+          # Con script podemos ejecutar comandos remotos al servidor.
+          script: |
+                  # -p sirve para realizar comandos remotos.
+                  mkdir -p /home/ubuntu/ejercicio_1
