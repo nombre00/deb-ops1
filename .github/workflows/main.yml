@@ -7,6 +7,7 @@ name: django-web
 
 # Luego viene:
 on:
+  # El programa empieza cuando hacemos push.
   push:
     branches:
       # Master es el nombre de la rama.
@@ -52,3 +53,18 @@ jobs:
         run: |
           cd ejercicioTrackDevops1-main
           python manage.py test
+
+
+
+      # Acá parte la segunda clase.
+
+      # Quinto paso.
+      # Acá nos conectamos al servidor.
+      - name: Crear carpeta en servidor AWS
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOST }}  # Secretos.
+          username: ${{secret.nombre_usuario}}  # Secretos.
+          key: ${{ secrets.llave_Privada }}  # Secretos.
+          port: ${{ secrets.puerto }}  # Secretos.
+          script: whoami
