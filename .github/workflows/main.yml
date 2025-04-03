@@ -103,6 +103,6 @@ jobs:
                   python3 -m venv venv
                   sudo apt-get install python3-pip -y
                   source venv/bin/activate
-                  pip3 install -r requiments.txt
+                  pip3 install -r requirements.txt
                   nohup python3 manage.py runserver 0.0.0.0:8000 --noreload > /dev/null 2>&1 &
                   exit 0
