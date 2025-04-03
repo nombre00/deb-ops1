@@ -72,6 +72,13 @@ jobs:
                   # -p sirve para realizar comandos remotos.
                   mkdir -p /home/ubuntu/ejercicio_1
       
+      # Paso extra.
+      - name: add SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > /.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+      
       # Sexto paso.
       # Copiamos archivos del repositorio al servidor.
       - name: copiar archivos del repositorio a AWS
@@ -95,7 +102,8 @@ jobs:
           port: ${{ secrets.puerto }}  # Secretos.
           # Con script podemos ejecutar comandos remotos al servidor.
           # apt corregido
-          # provamos con python3 en vez de python3.12
+          # provamos con python3 en vez de python3.12  ((esto no era))
+          # agregamos sudo apt update -y y corregimos el nombre de la carpeta requirements.txt
           script: |
                   cd /home/ubuntu/ejercicio_1/ejercicioTrackDevops1-main 
                   sudo apt update -y
