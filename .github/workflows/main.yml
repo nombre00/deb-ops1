@@ -94,6 +94,7 @@ jobs:
           key: ${{ secrets.llave_Privada }}  # Secretos.
           port: ${{ secrets.puerto }}  # Secretos.
           # Con script podemos ejecutar comandos remotos al servidor.
+          # apt corregido
           script: |
                   cd /home/ubuntu/ejercicio_1/ejercicioTrackDevops1-main
                   sudo apt-get install python3.12-venv -y
