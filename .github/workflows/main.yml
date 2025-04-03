@@ -97,8 +97,9 @@ jobs:
           # apt corregido
           # provamos con python3 en vez de python3.12
           script: |
-                  cd /home/ubuntu/ejercicio_1/ejercicioTrackDevops1-main
-                  sudo apt-get install python3-venv -y
+                  cd /home/ubuntu/ejercicio_1/ejercicioTrackDevops1-main 
+                  sudo apt update -y
+                  sudo apt-get install python3.12-venv -y
                   python3 -m venv venv
                   sudo apt-get install python3-pip -y
                   source venv/bin/activate
