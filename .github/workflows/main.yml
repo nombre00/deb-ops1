@@ -76,7 +76,7 @@ jobs:
       - name: add SSH key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > /.ssh/id_rsa
+          echo "${{ secrets.llave_Privada }}" > /.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
       
       # Sexto paso.
