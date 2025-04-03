@@ -95,9 +95,10 @@ jobs:
           port: ${{ secrets.puerto }}  # Secretos.
           # Con script podemos ejecutar comandos remotos al servidor.
           # apt corregido
+          # provamos con python3 en vez de python3.12
           script: |
                   cd /home/ubuntu/ejercicio_1/ejercicioTrackDevops1-main
-                  sudo apt-get install python3.12-venv -y
+                  sudo apt-get install python3-venv -y
                   python3 -m venv venv
                   sudo apt-get install python3-pip -y
                   source venv/bin/activate
